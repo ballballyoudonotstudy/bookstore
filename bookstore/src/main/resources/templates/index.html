@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>购书商城主页</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="container-fluid">
+            <div class="hedder-up row">
+                <div class="col-lg-3 col-md-3 logo-head">
+                    <h1><a class="navbar-brand" href="index.html">购书商城</a></h1>
+                </div>
+                <div class="col-lg-7 col-md-8 searchbar">
+                    <form class="form-inline my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="搜索书籍">
+                        <button class="btn" type="submit">搜索</button>
+                    </form>
+                </div>
+                <div class="col-lg-1 col-md-1 right-side-cart">
+                    <div class="icons">
+                        <ul>
+                            <li>
+                                <button type="button">
+                                    <a href="login.html"><i class="fa fa-user fa-2x"></i></a>
+                                </button>
+                            </li>
+                            <li class="cart">
+                                <button class="book_cart" type="submit" name="submit" value="">
+                                    <a href="cart.html"><i class="fa fa-cart-arrow-down fa-2x" ></i></a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <ul class="booklist">
+            <li  th:each="book:${books}">
+                <dl class="row">
+                    <dd><img src="./Images/book_01.jpg" alt="book" /></dd>
+                    <dt>
+                        <p class="book_title"></a th:text="${book.title}"></p>
+                        <p class="book_author" th:text="${book.author}"></p>
+                        <p class="book_price" th:text="${book.price} 元"></p>
+                        <button type="buy" class="btn buy-btnn" th:onlick="'addItem(\''+${book.id}+'\')'">购买</button>
+                    </dt>
+                </dl>
+            </li>
+            <!--<li>
+                <dl class="row">
+                    <dd><img src="./Images/book_02.jpg" alt="book" /></dd>
+                    <dt>
+                        <p class="book_title"><a href="book.html">Just Enough Research</a></p>
+                        <p class="book_author">by Mike Monteiro</p>
+                        <p class="book_prize">$100</p>
+                        <button type="buy" class="btn buy-btnn">购买</button>
+                    </dt>
+
+                </dl>
+            </li>
+            <li>
+                <dl class="row">
+                    <dd><img src="./Images/book_03.jpg" alt="book" /></dd>
+                    <dt>
+                        <p class="book_title">Content Strategy for Mobile</a></p>
+                        <p class="book_author">by Mike Monteiro</p>
+                        <p class="book_prize">$100</p>
+                        <button type="buy" class="btn buy-btnn">购买</button>
+                    </dt>
+
+                </dl>
+            </li>
+            <li>
+                <dl class="row">
+                    <dd><img src="./Images/book_04.jpg" alt="book" /></dd>
+                    <dt>
+                        <p class="book_title">Design Is a Job</a></p>
+                        <p class="book_author">by Mike Monteiro</p>
+                        <p class="book_prize">$100</p>
+                        <button type="buy" class="btn buy-btnn">购买</button>
+                    </dt>
+
+                </dl>
+            </li>-->
+        </ul>
+
+
+    </div>
+
+
+</body>
+</html>
