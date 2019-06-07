@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<html xmlns:th="http://thymeleaf.org" lang="zh-CN">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -49,20 +49,18 @@
     <div class="main-content">
 
         <ul class="booklist">
-            <li>
+            <li  th:each="book:${books}">
                 <dl class="row">
                     <dd><img src="./Images/book_01.jpg" alt="book" /></dd>
                     <dt>
-                        <p class="book_title">Gift Car</a></p>
-                        <p class="book_author">for shopping</p>
-                        <p class="book_prize">$100</p>
-                        <button type="buy" class="btn buy-btnn">购买</button>
+                        <p class="book_title"></a th:text="${book.title}"></p>
+                        <p class="book_author" th:text="${book.author}"></p>
+                        <p class="book_price" th:text="${book.price} 元"></p>
+                        <button type="buy" class="btn buy-btnn" th:onlick="'addItem(\''+${book.id}+'\')'">购买</button>
                     </dt>
-                    <!--<a class="book_buy" href="#" target="_blank">BUY</a>-->
-
                 </dl>
             </li>
-            <li>
+            <!--<li>
                 <dl class="row">
                     <dd><img src="./Images/book_02.jpg" alt="book" /></dd>
                     <dt>
@@ -97,7 +95,7 @@
                     </dt>
 
                 </dl>
-            </li>
+            </li>-->
         </ul>
 
 
